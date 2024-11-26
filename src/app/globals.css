@@ -3,19 +3,50 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-baloo-thambi: 'Baloo Thambi 2', cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .slide-in-from-left {
+    transform: translateX(-50px);
+  }
+
+  .slide-in-from-top {
+    transform: translateY(-50px);
+  }
+
+  .fade-in {
+    opacity: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 }
+
