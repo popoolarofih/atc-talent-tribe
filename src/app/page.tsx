@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect } from 'react'
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "./components/ui/button";
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "./components/ui/button"
 
 export default function Home() {
   useEffect(() => {
@@ -23,23 +23,27 @@ export default function Home() {
 
     return () => observer.disconnect()
   }, [])
+
   return (
     <div className="min-h-screen flex">
-      {/* Left Section with Red Overlay */}
+      {/* Left Section with Background Image and Content on Top */}
       <div className="relative w-full lg:w-3/5">
         {/* Background Image */}
+        
+        
+        {/* Red Overlay (Optional) */}
         <div 
-          className="absolute inset-0 bg-[url('/images/image 1.png')] bg-cover bg-center animate-on-scroll fade-in duration-1000"
+          className="absolute inset-0 bg-red-900 opacity-50 animate-on-scroll fade-in duration-1000 delay-300"
           aria-hidden="true"
         />
-        {/* Red Overlay */}
-        <div 
-  className="absolute inset-0 bg-red-900 animate-on-scroll fade-in duration-1000 delay-300" 
-  aria-hidden="true" />
 
-        
+        <div 
+          className="h-full bg-[url('/images/firstbgr.png')] bg-cover bg-center absolute inset-0"
+          aria-hidden="true"
+        />
+
         {/* Content */}
-        <div className="relative h-full flex flex-col">
+        <div className="relative z-10 h-full flex flex-col">
           {/* Navigation */}
           <nav className="flex items-center justify-between px-6 py-4 animate-on-scroll slide-in-from-top duration-500">
             <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2">
@@ -47,7 +51,7 @@ export default function Home() {
             </Link>
             
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/about" className="text-white hover:text-white/80 transition-colors">
+              <Link href="/Who-we-are" className="text-white hover:text-white/80 transition-colors">
                 About us
               </Link>
               <Link href="/team" className="text-white hover:text-white/80 transition-colors">
@@ -123,5 +127,5 @@ export default function Home() {
         />
       </div>
     </div>
-  );
+  )
 }
