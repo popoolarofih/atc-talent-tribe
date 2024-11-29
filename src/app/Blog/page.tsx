@@ -130,7 +130,7 @@ export default function blog() {
           <p className="text-white/90 mt-4 mb-8 max-w-2xl mx-auto animate-on-scroll slide-in-from-left duration-700 delay-150">
             Discover the latest news impacting the tech community and the tech world
           </p>
-        </div>
+        </div>     
       </div>
 
       {/* Main Content */}
