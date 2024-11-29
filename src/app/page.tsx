@@ -51,7 +51,7 @@ export default function Home() {
             </Link>
             
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/Who-we-are" className="text-white hover:text-white/80 transition-colors">
+              <Link href="/about" className="text-white hover:text-white/80 transition-colors">
                 About us
               </Link>
               <Link href="/team" className="text-white hover:text-white/80 transition-colors">
@@ -60,8 +60,8 @@ export default function Home() {
               <Link href="/community" className="text-white hover:text-white/80 transition-colors">
                 Community
               </Link>
-              <Link href="/Blog" className="text-white hover:text-white/80 transition-colors">
-                Blog
+              <Link href="/blog" className="text-white hover:text-white/80 transition-colors">
+                blog
               </Link>
               <Link href="/donate" className="text-white hover:text-white/80 transition-colors">
                 Donate

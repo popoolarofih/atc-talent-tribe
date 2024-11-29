@@ -1,61 +1,74 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from '../components/ui/button'
-import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react'
-import { FaTelegramPlane, FaTwitter, FaDiscord } from 'react-icons/fa';
-
+import { Facebook, Twitter, Instagram } from 'lucide-react'
+import { FaTelegramPlane, FaTwitter, FaDiscord } from 'react-icons/fa'
+import { Menu } from 'lucide-react'
 
 export default function WhoWeAre() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in')
+          entry.target.classList.add('animate-in');
         }
-      })
+      });
     }, {
       threshold: 0.1
-    })
+    });
 
     document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-      observer.observe(el)
-    })
+      observer.observe(el);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen">
-    {/* Navigation */}
-    <nav className="relative bg-white z-10 flex  px-6 py-4">
-      <Link href="/" className="text-white mr-10 text-2xl font-bold flex items-center">
-        <Image src="/images/Talent Tibe Color Logo 1.png" alt="logo" width={80} height={80} />
-      </Link>
-      
-      <div className="hidden ml-10 md:flex items-center gap-4">
-        <Link href="/who-we-are" className="text-red-900 hover:text-black transition-colors">
-          About us
+      {/* Navigation */}
+      <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
+        <Link href="/" className="text-white mr-10 text-2xl font-bold flex items-center">
+          <Image src="/images/Talent Tibe Color Logo 1.png" alt="logo" width={80} height={80} />
         </Link>
-        <Link href="/team" className="text-red-900 hover:text-black ">
-          Team
-        </Link>
-        <Link href="/community" className="text-red-900 hover:text-black ">
-          Community
-        </Link>
-        <Link href="/Blog" className="text-red-900 hover:text-black">
-          Blog
-        </Link>
-        <Link href="/donate" className="text-red-900 hover:text-black ">
-          Donate
-        </Link>
-        <Link href="/institution" className="text-red-900 hover:text-black ">
-          Institution
-        </Link>
-      </div>
-    </nav>
+
+        {/* Desktop Links */}
+        <div className="hidden ml-10 md:flex items-center gap-4">
+          <Link href="/about" className="text-red-900 hover:text-black transition-colors">About us</Link>
+          <Link href="/team" className="text-red-900 hover:text-black">Team</Link>
+          <Link href="/community" className="text-red-900 hover:text-black">Community</Link>
+          <Link href="/blog" className="text-red-900 hover:text-black">blog</Link>
+          <Link href="/donate" className="text-red-900 hover:text-black">Donate</Link>
+          <Link href="/institution" className="text-red-900 hover:text-black">Institution</Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="block md:hidden text-red-900"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+      </nav>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-red-900 text-white p-4 md:hidden z-20">
+          {['About us', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase().replace(" ", "-")}`}
+              className="block py-2 hover:text-white/80 transition-colors"
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+      )}
 
       {/* Hero Section */}
       <div className="relative h-[50vh] overflow-hidden">
@@ -168,10 +181,10 @@ export default function WhoWeAre() {
             <div>
               <h3 className="font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link href="/who-we-are">About us</Link></li>
+                <li><Link href="/about">About us</Link></li>
                 <li><Link href="/team">Team</Link></li>
                 <li><Link href="/community">Community</Link></li>
-                <li><Link href="/Blog">Blog</Link></li>
+                <li><Link href="/blog">blog</Link></li>
               </ul>
             </div>
             <div>

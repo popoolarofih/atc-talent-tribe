@@ -8,7 +8,7 @@ import { FaTelegramPlane, FaTwitter, FaDiscord } from 'react-icons/fa';
 
 import { Facebook, Twitter, Instagram, Youtube, ArrowRight, Menu } from 'lucide-react'
 
-export default function Blog() {
+export default function blog() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -66,9 +66,9 @@ export default function Blog() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[40vh] overflow-hidden">
+      <div className="relative h-[50vh] overflow-hidden">
         <div
-          className="absolute inset-0 bg-[url('/images/firstbg.png')] bg-cover bg-center"
+          className="absolute inset-0 bg-[url('/images/firstbgr.png')] bg-cover bg-center"
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-red-900/90" aria-hidden="true" />
@@ -87,7 +87,7 @@ export default function Blog() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {['About us', 'Team', 'Community', 'Blog', 'Donate', 'Institution'].map((item) => (
+            {['About', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase().replace(" ", "-")}`}
@@ -110,7 +110,7 @@ export default function Blog() {
         {/* Mobile Dropdown */}
         {menuOpen && (
           <div className="absolute top-16 left-0 right-0 bg-red-900 text-white p-4 md:hidden">
-            {['About us', 'Team', 'Community', 'Blog', 'Donate', 'Institution'].map((item) => (
+            {['About us', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase().replace(" ", "-")}`}
@@ -135,7 +135,7 @@ export default function Blog() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-16">
-        {/* Dynamic Blog Posts */}
+        {/* Dynamic blog Posts */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-8">Latest Posts</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -177,33 +177,14 @@ export default function Blog() {
             height={80}
           />
         </Link>
-        <div className="max-w-2xl mt-6 mx-auto text-center ">
-        <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-        <p className="mb-6">
-          Stay updated with the latest news and updates from our community.
-        </p>
-        <form className="flex bg-white rounded-lg flex-col sm:flex-row gap-4 max-w-md mx-auto">
-          {/* Input field for email */}
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="flex-1 px-4 py-2 text-red-900 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50"
-          />
-          <Button
-            variant="secondary"
-            className="bg-white text-red-900 hover:bg-white/90"
-          >
-            Subscribe
-          </Button>
-        </form>
-      </div>
+        
       </div>
       
       <div>
         <h3 className="font-bold mb-4">Quick Links</h3>
         <ul className="space-y-2">
           <li>
-            <Link href="/who-we-are">About us</Link>
+            <Link href="/about">About us</Link>
           </li>
           <li>
             <Link href="/team">Team</Link>
@@ -212,7 +193,7 @@ export default function Blog() {
             <Link href="/community">Community</Link>
           </li>
           <li>
-            <Link href="/Blog">Blog</Link>
+            <Link href="/blog">Blog</Link>
           </li>
         </ul>
       </div>
@@ -273,6 +254,26 @@ export default function Blog() {
             <Instagram className="h-6 w-6" />
           </Link>
         </div>
+      </div>
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-2xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+        <p className="mb-6">
+          Stay updated with the latest news and updates from our community.
+        </p>
+        <form className="flex bg-white rounded-lg flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          {/* Input field for email */}
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="flex-1 px-4 py-2 text-red-900 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50"
+          />
+          <Button
+            variant="secondary"
+            className="bg-white text-red-900 hover:bg-white/90"
+          >
+            Subscribe
+          </Button>
+        </form>
       </div>
     </div>
     <div className="border-t border-white/20 pt-8 text-center">
