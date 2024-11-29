@@ -45,7 +45,7 @@ export default function WhoWeAre() {
         <Link href="/community" className="text-red-900 hover:text-black ">
           Community
         </Link>
-        <Link href="/blog" className="text-red-900 hover:text-black">
+        <Link href="/Blog" className="text-red-900 hover:text-black">
           Blog
         </Link>
         <Link href="/donate" className="text-red-900 hover:text-black ">
@@ -171,6 +171,7 @@ export default function WhoWeAre() {
                 <li><Link href="/who-we-are">About us</Link></li>
                 <li><Link href="/team">Team</Link></li>
                 <li><Link href="/community">Community</Link></li>
+                <li><Link href="/Blog">Blog</Link></li>
               </ul>
             </div>
             <div>

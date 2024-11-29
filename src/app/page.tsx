@@ -60,7 +60,7 @@ export default function Home() {
               <Link href="/community" className="text-white hover:text-white/80 transition-colors">
                 Community
               </Link>
-              <Link href="/blog" className="text-white hover:text-white/80 transition-colors">
+              <Link href="/Blog" className="text-white hover:text-white/80 transition-colors">
                 Blog
               </Link>
               <Link href="/donate" className="text-white hover:text-white/80 transition-colors">
