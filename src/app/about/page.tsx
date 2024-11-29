@@ -30,11 +30,11 @@ export default function WhoWeAre() {
 
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
-        <Link href="/" className="text-white mr-10 text-2xl font-bold flex items-center animate-pulse duration-5">
-          <Image src="/images/Talent Tibe Color Logo 1.png" alt="logo" width={80} height={80} />
-        </Link>
+       {/* Navigation */}
+       <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
+        <Link href="/" className="text-white mr-10  flex items-center ">
+          <Image src="/images/Talent Tibe Color Logo 1.png"  className="animate-pulse duration-5" alt="logo" width={80} height={80} />
+        
 
         {/* Desktop Links */}
         <div className="hidden ml-10 md:flex items-center gap-4">
@@ -42,10 +42,8 @@ export default function WhoWeAre() {
           <Link href="/team" className="text-red-900 hover:text-black">Team</Link>
           <Link href="/community" className="text-red-900 hover:text-black">Community</Link>
           <Link href="/blog" className="text-red-900 hover:text-black">blog</Link>
-          <Link href="/donate" className="text-red-900 hover:text-black">Donate</Link>
-          <Link href="/institution" className="text-red-900 hover:text-black">Institution</Link>
         </div>
-
+        </Link>
         {/* Mobile Menu Button */}
         <button
           className="block md:hidden text-red-900"
@@ -58,7 +56,7 @@ export default function WhoWeAre() {
       {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
-          {['About us', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
+          {['About us', 'Team', 'Community', 'blog'].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase().replace(" ", "-")}`}

@@ -65,52 +65,33 @@ export default function blog() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[50vh] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-[url('/images/firstbgr.png')] bg-cover bg-center"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-red-900/90" aria-hidden="true" />
+       {/* Navigation */}
+       <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
+        <Link href="/" className="text-white mr-10  flex items-center ">
+          <Image src="/images/Talent Tibe Color Logo 1.png"  className="animate-pulse duration-5" alt="logo" width={80} height={80} />
+        
 
-        {/* Navigation */}
-        <nav className="relative z-10 flex items-center justify-between px-6 py-4">
-          <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2 animate-pulse">
-            <Image
-              src="/images/Talent Tibe Official white logo 1.png"
-              alt="logo"
-              width={80}
-              height={80}
-              priority
-            />
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {['About', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase().replace(" ", "-")}`}
-                className="text-white hover:text-white/80 transition-colors"
-              >
-                {item}
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile Menu */}
-          <button
-            className="block md:hidden text-white"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <Menu className="h-6 w-6" />
-          </button>
-        </nav>
+        {/* Desktop Links */}
+        <div className="hidden ml-10 md:flex items-center gap-4">
+          <Link href="/about" className="text-red-900 hover:text-black transition-colors">About us</Link>
+          <Link href="/team" className="text-red-900 hover:text-black">Team</Link>
+          <Link href="/community" className="text-red-900 hover:text-black">Community</Link>
+          <Link href="/blog" className="text-red-900 hover:text-black">blog</Link>
+        </div>
+        </Link>
+        {/* Mobile Menu Button */}
+        <button
+          className="block md:hidden text-red-900"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+      </nav>
 
         {/* Mobile Dropdown */}
         {menuOpen && (
           <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden">
-            {['About us', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
+            {['About us', 'Team', 'Community', 'blog'].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase().replace(" ", "-")}`}
@@ -121,6 +102,15 @@ export default function blog() {
             ))}
           </div>
         )}
+      {/* Hero Section */}
+      <div className="relative h-[50vh] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-[url('/images/firstbgr.png')] bg-cover bg-center"
+          aria-hidden="true"
+        />
+        {/* <div className="absolute inset-0 bg-red-900/90" aria-hidden="true" /> */}
+
+       
 
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">

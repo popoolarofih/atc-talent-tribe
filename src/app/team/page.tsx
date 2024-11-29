@@ -1,74 +1,77 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from '../components/ui/button'
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react'
+import { Menu } from 'lucide-react'
 
 export default function WhoWeAre() {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in')
-        }
-      })
-    }, {
-      threshold: 0.1
-    })
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-      observer.observe(el)
-    })
-
-    return () => observer.disconnect()
-  }, [])
-
+    useEffect(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+  
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+  
+      return () => observer.disconnect();
+    }, []);
+  
   return (
     <div className="min-h-screen">
+      {/* Navigation */}
+      <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
+        <Link href="/" className="text-white mr-10  flex items-center ">
+          <Image src="/images/Talent Tibe Color Logo 1.png"  className="animate-pulse duration-5" alt="logo" width={80} height={80} />
+        
+
+        {/* Desktop Links */}
+        <div className="hidden ml-10 md:flex items-center gap-4">
+          <Link href="/about" className="text-red-900 hover:text-black transition-colors">About us</Link>
+          <Link href="/team" className="text-red-900 hover:text-black">Team</Link>
+          <Link href="/community" className="text-red-900 hover:text-black">Community</Link>
+          <Link href="/blog" className="text-red-900 hover:text-black">blog</Link>
+        </div>
+        </Link>
+        {/* Mobile Menu Button */}
+        <button
+          className="block md:hidden text-red-900"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+      </nav>
+
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
+          {['About', 'Team', 'Community', 'blog'].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase().replace(" ", "-")}`}
+              className="block py-2 hover:text-white/80 transition-colors"
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+      )}
       {/* Hero Section */}
       <div className="relative h-[80vh] overflow-hidden">
         <div
           className="absolute inset-0 bg-[url('/images/teambg.svg')] bg-cover bg-center"
           aria-hidden="true"
         />
-
-
-        <nav className="relative z-10 flex items-center justify-between px-6 py-4">
-          <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2">
-            <Image src="/images/Talent Tibe Official white logo 1.png" alt="logo" width={80} height={80} />
-          </Link>
-
-          {/* Mobile Menu Toggle */}
-          <input
-            type="checkbox"
-            id="menu-toggle"
-            className="hidden peer"
-          />
-          <label
-            htmlFor="menu-toggle"
-            className="cursor-pointer md:hidden block text-white"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </label>
-
-          {/* Menu (Hidden by Default) */}
-          <div className="hidden md:flex md:items-center gap-8 peer-checked:flex peer-checked:flex-col absolute top-full left-0 w-full bg-black bg-opacity-80 p-4 md:bg-transparent md:relative md:w-auto md:p-0 md:flex-row">
-            <Link href="/Who-we-are" className="text-white hover:text-white/80 transition-colors">About Us</Link>
-            <Link href="/team" className="text-white hover:text-white/80 transition-colors">Team</Link>
-            <Link href="/community" className="text-white hover:text-white/80 transition-colors">Community</Link>
-            <Link href="/blog" className="text-white hover:text-white/80 transition-colors">Blog</Link>
-            <Link href="/donate" className="text-white hover:text-white/80 transition-colors">Donate</Link>
-            <Link href="/institution" className="text-white hover:text-white/80 transition-colors">Institution</Link>
-          </div>
-        </nav>
-
-
-
-
         {/* Hero Content */}
         <div className='px-20 my-28 flex'>
           <div>

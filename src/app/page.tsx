@@ -65,12 +65,6 @@ export default function Home() {
               <Link href="/blog" className="text-white hover:text-white/80 transition-colors">
                 blog
               </Link>
-              <Link href="/donate" className="text-white hover:text-white/80 transition-colors">
-                Donate
-              </Link>
-              <Link href="/institution" className="text-white hover:text-white/80 transition-colors">
-                Institution
-              </Link>
             </div>
             {/* Mobile Menu Button */}
         <button
@@ -83,7 +77,7 @@ export default function Home() {
           {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
-          {['About us', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
+          {['About', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase().replace(" ", "-")}`}
