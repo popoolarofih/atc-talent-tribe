@@ -107,19 +107,19 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 mb-16 animate-on-scroll slide-in-from-left duration-700 delay-300">
                 <Button
                   variant="secondary"
-                  className="bg-white text-red-900 hover:bg-white/90 rounded-xl border animate-pulse-slow hover:scale-105 transition-size duration-300"
+                  className="bg-white text-black hover:bg-white/90 rounded-xl border animate-pulse-slow hover:scale-105 transition-size duration-300"
                 >
                   Who we are
                 </Button>
                 <Button
                   variant="secondary"
-                  className="bg-white text-red-900 hover:bg-white/90 rounded-xl border animate-pulse-slow hover:scale-105 transition-size duration-300"
+                  className="bg-white text-black hover:bg-white/90 rounded-xl border animate-pulse-slow hover:scale-105 transition-size duration-300"
                 >
-                  Join our Community
+                  Join our Community  <FaTelegramPlane className="h-6 w-6" />
                 </Button>
                 <Button
                   variant="secondary"
-                  className="bg-white text-red-900 hover:bg-white/90 rounded-xl border animate-pulse-slow hover:scale-105 transition-size duration-300"
+                  className="bg-white text-black hover:bg-white/90 rounded-xl border animate-pulse-slow hover:scale-105 transition-size duration-300"
                 >
                   Login
                 </Button>
