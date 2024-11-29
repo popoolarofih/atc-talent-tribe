@@ -109,7 +109,7 @@ export default function blog() {
 
         {/* Mobile Dropdown */}
         {menuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-red-900 text-white p-4 md:hidden">
+          <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden">
             {['About us', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
               <Link
                 key={item}

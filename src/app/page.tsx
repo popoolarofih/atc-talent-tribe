@@ -1,11 +1,13 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./components/ui/button"
-
+import { Facebook, Twitter, Instagram, Youtube,  ArrowRight, Menu } from 'lucide-react'
+import { FaTelegramPlane} from 'react-icons/fa'
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -70,8 +72,28 @@ export default function Home() {
                 Institution
               </Link>
             </div>
+            {/* Mobile Menu Button */}
+        <button
+          className="block md:hidden text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <Menu className="h-6 w-6" />
+        </button>
           </nav>
-
+          {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
+          {['About us', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase().replace(" ", "-")}`}
+              className="block py-2 hover:text-white/80 transition-colors"
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+      )}
           {/* Hero Section */}
           <main className="flex-1 flex flex-col justify-center px-6 py-20">
             <div className="max-w-2xl">
