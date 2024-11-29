@@ -10,24 +10,16 @@ import { Facebook, Twitter, Instagram, Youtube, ArrowRight, Menu } from 'lucide-
 
 export default function blog() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   useEffect(() => {
-    // Check for Intersection Observer support
-    if (!('IntersectionObserver' in window)) {
-      console.warn('Intersection Observer not supported');
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
 
     document.querySelectorAll('.animate-on-scroll').forEach((el) => {
       observer.observe(el);
@@ -65,8 +57,8 @@ export default function blog() {
 
   return (
     <div className="min-h-screen">
-       {/* Navigation */}
-       <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
+      {/* Navigation */}
+      <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
         <Link href="/" className="text-white mr-10  flex items-center ">
           <Image src="/images/Talent Tibe Color Logo 1.png"  className="animate-pulse duration-5" alt="logo" width={80} height={80} />
         
@@ -88,20 +80,20 @@ export default function blog() {
         </button>
       </nav>
 
-        {/* Mobile Dropdown */}
-        {menuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden">
-            {['About us', 'Team', 'Community', 'blog'].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase().replace(" ", "-")}`}
-                className="block py-2 hover:text-white/80 transition-colors"
-              >
-                {item}
-              </Link>
-            ))}
-          </div>
-        )}
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
+          {['About us', 'Team', 'Community', 'blog'].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase().replace(" ", "-")}`}
+              className="block py-2 hover:text-white/80 transition-colors"
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+      )}
       {/* Hero Section */}
       <div className="relative h-[50vh] overflow-hidden">
         <div

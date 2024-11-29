@@ -9,7 +9,6 @@ import { Menu } from 'lucide-react'
 
 export default function WhoWeAre() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
