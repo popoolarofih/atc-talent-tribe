@@ -75,7 +75,7 @@ export default function blog() {
 
         {/* Navigation */}
         <nav className="relative z-10 flex items-center justify-between px-6 py-4">
-          <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2">
+          <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2 animate-pulse">
             <Image
               src="/images/Talent Tibe Official white logo 1.png"
               alt="logo"

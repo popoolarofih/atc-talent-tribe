@@ -32,7 +32,7 @@ export default function WhoWeAre() {
     <div className="min-h-screen">
       {/* Navigation */}
       <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
-        <Link href="/" className="text-white mr-10 text-2xl font-bold flex items-center">
+        <Link href="/" className="text-white mr-10 text-2xl font-bold flex items-center animate-pulse duration-5">
           <Image src="/images/Talent Tibe Color Logo 1.png" alt="logo" width={80} height={80} />
         </Link>
 
@@ -95,7 +95,7 @@ export default function WhoWeAre() {
         {/* Who We Are Section */}
         <section className="mb-20 items-center animate-on-scroll fade-in">
           <div>
-            <h2 className="text-3xl text-center font-bold mb-4">Who We Are</h2>
+            <h2 className="text-3xl text-center font-bold mb-4 animate-bounce duration-500">Who We Are</h2>
             <p className="text-black gap-6 text-justify mb-4 text-[23px]">
             Talent Tribe is a community for Oyo students to collaborate, innovate, and foster growth and opportunity.
             </p>
@@ -112,13 +112,13 @@ export default function WhoWeAre() {
       src="/images/mission.png" 
       alt="Our mission" 
       fill
-      className="object-cover rounded-lg"
+      className="object-cover rounded-lg animate-in duration-1000"
     />
   </div>
 
   {/* Text on the Right */}
   <div className="md:order-2">
-    <h2 className="text-3xl font-bold mb-6 text-center">Mission</h2>
+    <h2 className="text-3xl font-bold mb-6 text-center animate-bounce duration-500">Mission</h2>
     <p className="text-black text-justify text-2xl mb-6">
       Our Mission is to create opportunities for Oyo's tech-savvy students to innovate, collaborate, and shape the future. 
     </p>
@@ -131,8 +131,8 @@ export default function WhoWeAre() {
 {/* Vision Section */}
 <section className="grid md:grid-cols-2 gap-12 mb-20 items-center animate-on-scroll fade-in">
           <div>
-            <h2 className="text-3xl font-bold text-center mb-6">Vision</h2>
-            <p className="text-black text-justify text-xl">
+            <h2 className="text-3xl font-bold text-center mb-6 animate-bounce duration-500">Vision</h2>
+            <p className="text-black text-justify text-2xl animate-in">
               Driving innovation and opportunity for Oyo's students through collaboration and community. 
               We nurture well-rounded individuals with strong academic foundations, creative thinking skills, and a global perspective.
             </p>
@@ -142,7 +142,7 @@ export default function WhoWeAre() {
               src="/images/vision.png" 
               alt="Our Vision" 
               fill 
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg animate-in duration-1000"
             />
           </div>
         </section>
@@ -150,7 +150,7 @@ export default function WhoWeAre() {
         {/* Our Community Section */}
         <section className="grid md:grid-cols-2 bg-gray-100 gap-12 mb-20 items-center p-8 rounded-lg">
           <div className="md:order-2">
-            <h2 className="text-3xl font-bold text-center mb-6">Our Community</h2>
+            <h2 className="text-3xl font-bold text-center mb-6 animate-bounce duration-700">Our Community</h2>
             <p className="text-black text-justify text-xl mb-4">
             Our community is a safe enabling environment on Telegram chat, consisting of diverse people all working together to grow a collaborative system.
             </p>
@@ -163,7 +163,7 @@ export default function WhoWeAre() {
               src="/images/community.png" 
               alt="Our Community" 
               fill 
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg animate-in duration-1000"
             />
           </div>
         </section>

@@ -48,7 +48,7 @@ export default function Home() {
         <div className="relative z-10 h-full flex flex-col">
           {/* Navigation */}
           <nav className="flex items-center justify-between px-6 py-4 animate-on-scroll slide-in-from-top duration-500">
-            <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2">
+            <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2 animate-pulse">
               <Image src="/images/Talent Tibe Official white logo 1.png" alt="logo" width={80} height={80} />
             </Link>
             
@@ -115,7 +115,7 @@ export default function Home() {
                   variant="secondary"
                   className="bg-white text-black hover:bg-white/90 rounded-xl border animate-pulse-slow hover:scale-105 transition-size duration-300"
                 >
-                  Join our Community  <FaTelegramPlane className="h-6 w-6" />
+                  Join our Community  <FaTelegramPlane className="h-6 w-6 animate-ping" />
                 </Button>
                 <Button
                   variant="secondary"
