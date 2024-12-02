@@ -82,9 +82,54 @@ export default function Community() {
           </h1>
         </div>
       </div>
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
+  <div className="relative overflow-hidden border rounded-2xl shadow-lg">
+    <Image 
+      src="/images/community1.png" 
+      alt="Community Image 1"
+      width={400}
+      height={300}
+      className="object-cover w-full h-full"
+    />
+  </div>
+
+  {/* Image 2 */}
+  <div className="relative overflow-hidden border rounded-2xl shadow-lg">
+    <Image 
+      src="/images/community2.png" // Replace with the second image file name
+      alt="Community Image 2"
+      width={400}
+      height={300}
+      className="object-cover w-full h-full"
+    />
+  </div>
+
+  {/* Image 3 */}
+  <div className="relative overflow-hidden border rounded-2xl shadow-lg">
+    <Image 
+      src="/images/community3.png" // Replace with the third image file name
+      alt="Community Image 3"
+      width={400}
+      height={300}
+      className="object-cover w-full h-full"
+    />
+  </div>
+
+  {/* Image 4 */}
+  <div className="relative overflow-hidden border rounded-2xl shadow-lg">
+    <Image 
+      src="/images/community4.png" // Replace with the fourth image file name
+      alt="Community Image 4"
+      width={400}
+      height={300}
+      className="object-cover w-full h-full"
+    />
+  </div>
+</div>
 
       {/* Main Content */}
       <main className="flex-1 container mx-auto px-4 py-16">
+        
         <div className="max-w-3xl mx-auto space-y-8">
           <p className="text-lg leading-relaxed">
             <strong>Talent Tribe</strong> is committed to empowering individuals across Oyo to build successful careers in technology and innovation.
