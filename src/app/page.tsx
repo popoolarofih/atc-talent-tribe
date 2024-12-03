@@ -140,12 +140,14 @@ export default function Home() {
               </div>
             </div>
           </main>
-          {/* <div className="buttom py-6 bg-white flex md:items-center items-center gap-2">
-            <p className="ml-4 text-red-900 font-bold">our admirable partners</p>
+          <div className="buttom py-6 bg-white flex md:items-center items-center gap-2">
+            <p className="ml-4 text-red-900 font-bold ">our admirable partners</p>
+            <div className='md: w-50 flex'>
             <img src="/images/buttomlogo1.png" width={100} height={30} alt="" />
             <img src="/images/buttomlogo2.png" width={100} height={30}  alt="" />
             <img src="/images/buttomlogo3.png" width={100} height={30}  alt="" />
-          </div> */}
+            </div>
+          </div>
         </div>
       </div>
 
