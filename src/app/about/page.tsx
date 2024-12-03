@@ -5,10 +5,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Twitter, Instagram } from 'lucide-react'
 import { FaTelegramPlane, FaTwitter, FaDiscord } from 'react-icons/fa'
-import { Menu } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 export default function WhoWeAre() {
-  const [menuOpen, setMenuOpen] = useState(false);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -29,63 +30,118 @@ export default function WhoWeAre() {
 
   return (
     <div className="min-h-screen">
-       {/* Navigation */}
-       <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
-        <Link href="/" className="text-white mr-10  flex items-center ">
-          <Image src="/images/Talent Tibe Color Logo 1.png"  className="animate-pulse duration-5" alt="logo" width={80} height={80} />
-        
+       <nav className="bg-white shadow-sm fixed w-full z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/Talent Tibe Color Logo 1.png"
+                alt="Talent Tribe Logo"
+                width={80}
+                height={80}
+                className="h-11 w-auto"
+              />
+            </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden ml-10 md:flex items-center gap-4">
-          <Link href="/about" className="text-red-900 hover:text-black transition-colors">About us</Link>
-          <Link href="/team" className="text-red-900 hover:text-black">Team</Link>
-          <Link href="/community" className="text-red-900 hover:text-black">Community</Link>
-          <Link href="/blog" className="text-red-900 hover:text-black">blog</Link>
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden rounded-md p-2 text-red-900 hover:bg-gray-100 focus:outline-none"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/about" className="text-red-900 hover:text-black transition-colors">
+                About us
+              </Link>
+              <Link href="/team" className="text-red-900 hover:text-black transition-colors">
+                Team
+              </Link>
+              <Link href="/community" className="text-red-900 hover:text-black transition-colors">
+                Community
+              </Link>
+              <Link href="/blog" className="text-red-900 hover:text-black transition-colors">
+                Blog
+              </Link>
+              <Link href="/chapters" className="text-red-900 hover:text-black transition-colors">
+                Our Chapters
+              </Link>
+            </div>
+          </div>
         </div>
-        </Link>
-        {/* Mobile Menu Button */}
-        <button
-          className="block md:hidden text-red-900"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <Menu className="h-6 w-6" />
-        </button>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t">
+            <div className="container mx-auto px-4 py-4 space-y-4">
+              <Link 
+                href="/about" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About us
+              </Link>
+              <Link 
+                href="/team" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Team
+              </Link>
+              <Link 
+                href="/community" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Community
+              </Link>
+              <Link 
+                href="/blog" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
+              <Link 
+                href="/chapters" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Our Chapetrs
+              </Link>
+              
+            </div>
+          </div>
+        )}
       </nav>
 
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
-          {['About us', 'Team', 'Community', 'blog'].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase().replace(" ", "-")}`}
-              className="block py-2 hover:text-white/80 transition-colors"
-            >
-              {item}
-            </Link>
-          ))}
-        </div>
-      )}
-
       {/* Hero Section */}
-      <div className="relative h-[50vh] overflow-hidden">
+      <div className="relative h-[80vh] overflow-hidden">
         <div 
           className="absolute inset-0 bg-[url('/images/aboutfr.png')] bg-cover bg-center"
           aria-hidden="true"
         />
-        {/* <div 
-          className="absolute inset-0 bg-red-900/90"
-          aria-hidden="true"
-        /> */}
-        
        
         {/* Hero Content */}
-        <div className="relative z-10 mt-20  ml-20 h-full">
+        <div className="px-20 my-28 flex">
+          <div>
+          <div className='relative'>
           <h1 className="text-white text-5xl font-bold font-balooThambi animate-on-scroll slide-in-from-left duration-700">
             Connecting Ecosystem Builder's
-          </h1>
+          </h1> <br />
+          </div>
+          <div className="relative">
           <h6 className="text-white font-balooThambi">A community of creative minds driving the Oyo ecosystem through Innovation.</h6>
+          </div>
+          </div>
         </div>
+        
       </div>
 
       <main className="container mx-auto px-4 py-16">
@@ -93,10 +149,10 @@ export default function WhoWeAre() {
         <section className="mb-20 items-center animate-on-scroll fade-in">
           <div>
             <h2 className="text-3xl text-center font-bold mb-4 animate-bounce duration-500">Who We Are</h2>
-            <p className="text-black gap-6 text-justify mb-4 text-[23px]">
+            <p className="text-black gap-8 text-justify mb-4 text-[25px]">
             Talent Tribe is a community for Oyo students to collaborate, innovate, and foster growth and opportunity.
             </p>
-            <p className="text-black text-justify text-[23px]">
+            <p className="text-black gap-8 text-justify text-[25px]">
             A platform for Oyo students to connect, create, and cultivate a culture of innovation and growth.
             </p>
           </div>

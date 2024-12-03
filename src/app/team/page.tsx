@@ -4,11 +4,10 @@ import { useEffect, useState } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react'
-import { Menu } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 export default function WhoWeAre() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
     useEffect(() => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -29,43 +28,96 @@ export default function WhoWeAre() {
   
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="relative bg-white z-10 flex justify-between items-center px-6 py-4">
-        <Link href="/" className="text-white mr-10  flex items-center ">
-          <Image src="/images/Talent Tibe Color Logo 1.png"  className="animate-pulse duration-5" alt="logo" width={80} height={80} />
-        
-
-        {/* Desktop Links */}
-        <div className="hidden ml-10 md:flex items-center gap-4">
-          <Link href="/about" className="text-red-900 hover:text-black transition-colors">About us</Link>
-          <Link href="/team" className="text-red-900 hover:text-black">Team</Link>
-          <Link href="/community" className="text-red-900 hover:text-black">Community</Link>
-          <Link href="/blog" className="text-red-900 hover:text-black">blog</Link>
-        </div>
-        </Link>
-        {/* Mobile Menu Button */}
-        <button
-          className="block md:hidden text-red-900"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <Menu className="h-6 w-6" />
-        </button>
-      </nav>
-
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
-          {['About', 'Team', 'Community', 'blog'].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase().replace(" ", "-")}`}
-              className="block py-2 hover:text-white/80 transition-colors"
-            >
-              {item}
+      <nav className="bg-white shadow-sm fixed w-full z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/Talent Tibe Color Logo 1.png"
+                alt="Talent Tribe Logo"
+                width={80}
+                height={80}
+                className="h-11 w-auto"
+              />
             </Link>
-          ))}
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden rounded-md p-2 text-red-900 hover:bg-gray-100 focus:outline-none"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/about" className="text-red-900 hover:text-black transition-colors">
+                About us
+              </Link>
+              <Link href="/team" className="text-red-900 hover:text-black transition-colors">
+                Team
+              </Link>
+              <Link href="/community" className="text-red-900 hover:text-black transition-colors">
+                Community
+              </Link>
+              <Link href="/blog" className="text-red-900 hover:text-black transition-colors">
+                Blog
+              </Link>
+              <Link href="/chapters" className="text-red-900 hover:text-black transition-colors">
+                Our Chapters
+              </Link>
+            </div>
+          </div>
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t">
+            <div className="container mx-auto px-4 py-4 space-y-4">
+              <Link 
+                href="/about" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About us
+              </Link>
+              <Link 
+                href="/team" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Team
+              </Link>
+              <Link 
+                href="/community" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Community
+              </Link>
+              <Link 
+                href="/blog" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
+              <Link 
+                href="/chapters" 
+                className="block text-red-900 hover:text-black transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Our Chapetrs
+              </Link>
+              
+            </div>
+          </div>
+        )}
+      </nav>
       {/* Hero Section */}
       <div className="relative h-[80vh] overflow-hidden">
         <div

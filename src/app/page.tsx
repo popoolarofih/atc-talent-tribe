@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./components/ui/button"
-import { Facebook, Twitter, Instagram, Youtube,  ArrowRight, Menu } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Youtube,  ArrowRight, Menu, X } from 'lucide-react'
 import { FaTelegramPlane} from 'react-icons/fa'
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -54,7 +54,7 @@ export default function Home() {
             
             <div className="hidden md:flex items-center gap-8">
               <Link href="/about" className="text-white hover:text-white/80 transition-colors">
-                About us
+                About us b
               </Link>
               <Link href="/team" className="text-white hover:text-white/80 transition-colors">
                 Team
@@ -65,19 +65,27 @@ export default function Home() {
               <Link href="/blog" className="text-white hover:text-white/80 transition-colors">
                 blog
               </Link>
+              <Link href="/chapters" className="text-white hover:text-white/80 transition-colors">
+                Our Chapters
+              </Link>
             </div>
             {/* Mobile Menu Button */}
-        <button
-          className="block md:hidden text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <Menu className="h-6 w-6" />
-        </button>
-          </nav>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden rounded-md p-2 text-white hover:bg-gray-100 focus:outline-none"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          
+        </nav>
           {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-transparent text-white p-4 md:hidden z-20">
-          {['About', 'Team', 'Community', 'blog', 'Donate', 'Institution'].map((item) => (
+      {isMenuOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-white text-red-900 p-4 md:hidden z-20">
+          {['About', 'Team', 'Community', 'blog', 'Chapters'].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase().replace(" ", "-")}`}
@@ -132,12 +140,12 @@ export default function Home() {
               </div>
             </div>
           </main>
-          <div className="buttom py-6 bg-white flex md:items-center items-center gap-2">
+          {/* <div className="buttom py-6 bg-white flex md:items-center items-center gap-2">
             <p className="ml-4 text-red-900 font-bold">our admirable partners</p>
             <img src="/images/buttomlogo1.png" width={100} height={30} alt="" />
             <img src="/images/buttomlogo2.png" width={100} height={30}  alt="" />
             <img src="/images/buttomlogo3.png" width={100} height={30}  alt="" />
-          </div>
+          </div> */}
         </div>
       </div>
 
