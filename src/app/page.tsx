@@ -30,10 +30,7 @@ export default function Home() {
     <div className="min-h-screen flex">
       {/* Left Section with Background Image and Content on Top */}
       <div className="relative w-full lg:w-3/5">
-        {/* Background Image */}
         
-        
-        {/* Red Overlay (Optional) */}
         <div 
           className="absolute inset-0 bg-red-900 opacity-50 animate-on-scroll fade-in duration-1000 delay-300"
           aria-hidden="true"
