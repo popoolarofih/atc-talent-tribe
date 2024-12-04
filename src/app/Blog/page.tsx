@@ -8,8 +8,9 @@ import { FaTelegramPlane, FaTwitter, FaDiscord } from 'react-icons/fa';
 
 import { Facebook, Instagram, ArrowRight, Menu, X } from 'lucide-react'
 
-export default function blog() {
+export default function Blog() { // Capitalized the component name
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
