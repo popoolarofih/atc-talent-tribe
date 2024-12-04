@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Button } from "../components/ui/button"
 import { FaTelegramPlane, FaTwitter, FaDiscord } from 'react-icons/fa';
 
-import { Facebook, Twitter, Instagram, Youtube, ArrowRight, Menu, X } from 'lucide-react'
+import { Facebook, Instagram, ArrowRight, Menu, X } from 'lucide-react'
 
 export default function blog() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
