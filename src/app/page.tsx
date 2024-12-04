@@ -97,7 +97,7 @@ export default function Home() {
           <main className="flex-1 flex flex-col justify-center px-6 py-20">
             <div className="max-w-2xl">
               <h1 className="text-white text-5xl font-bold mb-4 animate-on-scroll slide-in-from-left duration-700">
-                Connecting Ecosystem Builder's
+              Connecting Ecosystem Builder&apos;s
               </h1>
               <p className="text-white/90 text-xl mb-8 animate-on-scroll slide-in-from-left duration-700 delay-150">
                 A community of creative minds driving the Oyo ecosystem through Innovation.
@@ -138,7 +138,7 @@ export default function Home() {
             </div>
           </main>
           <div className="buttom py-6 bg-white flex md:items-center items-center gap-2">
-            <p className="ml-4 text-red-900 font-bold ">our admirable partners</p>
+            <p className="ml-4 text-red-900 font-bold ">Our admirable partners</p>
             <div className='md: w-50 flex'>
             <img src="/images/buttomlogo1.png" width={100} height={30} alt="" />
             <img src="/images/buttomlogo2.png" width={100} height={30}  alt="" />

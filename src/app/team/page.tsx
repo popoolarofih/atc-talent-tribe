@@ -120,10 +120,9 @@ export default function WhoWeAre() {
       </nav>
       {/* Hero Section */}
       <div className="relative h-[80vh] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-[url('/images/teambg.svg')] bg-cover bg-center"
-          aria-hidden="true"
-        />
+      
+        <div className="absolute inset-0 bg-[url('/images/teambg.svg')] bg-cover bg-center"
+          aria-hidden="true"></div>
         {/* Hero Content */}
         <div className='px-20 my-28 flex'>
           <div>
