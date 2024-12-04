@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "./components/ui/button"
-import { Facebook, Twitter, Instagram, Youtube,  ArrowRight, Menu, X } from 'lucide-react'
+import {  Menu, X } from 'lucide-react'
 import { FaTelegramPlane} from 'react-icons/fa'
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
